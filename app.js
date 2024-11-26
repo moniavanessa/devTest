@@ -4,10 +4,11 @@ const arguments = require('process');
 
 // Function to filter animals based in pattern passed as argument
 function filterAnimals(pattern) {
+
     //make it case insensitive
     const regex = new RegExp(pattern, 'i');
 
-    // go through the list search by the pattern
+    // go through the list to search animals names that match the pattern
     return data.filter(country => {
 
         let countryWithAnimals = false;
@@ -30,16 +31,16 @@ function filterAnimals(pattern) {
 
 }
 
-// Function that goes through the list and count the number of children and animals by children
+// Function to count people and animals and modify names
 function countChildren() {
     return data.map(country => {
         const peopleCount = country.people.length;
 
-        country.name = `${country.name}[${peopleCount}]`;
+        country.name = `${country.name} [${peopleCount}]`;
 
         country.people = country.people.map(person => {
             const animalsCount = person.animals.length;
-            person.name = `${person.name}[${animalsCount}]`;
+            person.name = `${person.name} [${animalsCount}]`;
             return person;
 
         });
